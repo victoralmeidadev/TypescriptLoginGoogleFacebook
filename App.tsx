@@ -1,11 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './src/routes';
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <View>
-      <Text>Start project</Text>
-    </View>
+    <NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <Routes />
+    </NavigationContainer>
   );
 };
 
