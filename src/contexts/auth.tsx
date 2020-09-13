@@ -26,7 +26,8 @@ export const AuthProvider: React.FC = ({ children }) => {
   useEffect(() => {
     GoogleSignin.configure({
       scopes: ['email'],
-      webClientId: '', //webClient firebase
+      webClientId:
+        '895477930717-rejqvn38t0hn364iao9dssuj4naqfinc.apps.googleusercontent.com',
       offlineAccess: true,
     });
   }, []);

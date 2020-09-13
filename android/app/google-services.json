@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "895477930717",
+    "firebase_url": "https://typescriptloginfacebook.firebaseio.com",
+    "project_id": "typescriptloginfacebook",
+    "storage_bucket": "typescriptloginfacebook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895477930717:android:a76a105bd6e0e34ab89934",
+        "android_client_info": {
+          "package_name": "com.typescriptlogingooglefacebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895477930717-g43l56o6sf6qb4dj2g2sln279kcpalm3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.typescriptlogingooglefacebook",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "895477930717-rejqvn38t0hn364iao9dssuj4naqfinc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLf6CGJ_DqQZGM7-HFTgyHmgwvQ9mxCX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895477930717-rejqvn38t0hn364iao9dssuj4naqfinc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
