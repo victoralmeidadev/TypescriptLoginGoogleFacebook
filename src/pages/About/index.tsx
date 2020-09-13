@@ -1,13 +1,29 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { useAuth } from '../../contexts/auth';
 
-// import { Container } from './styles';
+import {
+  Container,
+  ProfilePicture,
+  Name,
+  Email,
+  Content,
+  LogoutButton,
+  LogoutButtonText,
+} from './styles';
 
 const About: React.FC = () => {
+  const { userInfo, useSignOut } = useAuth();
   return (
-    <View>
-      <Text>About</Text>
-    </View>
+    <Container>
+      <Content>
+        <ProfilePicture source={{ uri: userInfo?.photo }} />
+        <Name>{userInfo?.name}</Name>
+        <Email>{userInfo?.email}</Email>
+      </Content>
+      <LogoutButton onPress={() => useSignOut()}>
+        <LogoutButtonText>Sair</LogoutButtonText>
+      </LogoutButton>
+    </Container>
   );
 };
 

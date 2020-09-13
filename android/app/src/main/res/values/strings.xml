@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TypescriptLoginGoogleFacebook</string>
+    <string name="facebook_app_id">SUA_APP_ID</string>
 </resources>
