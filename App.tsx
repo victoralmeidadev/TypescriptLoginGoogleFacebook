@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <NavigationContainer>
       <AuthProvider>
-        <StatusBar barStyle="light-content" />
+        <StatusBar hidden barStyle="light-content" />
         <Routes />
       </AuthProvider>
     </NavigationContainer>

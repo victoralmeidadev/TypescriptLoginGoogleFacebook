@@ -3,16 +3,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-import Login from './pages/Login';
-import HomeRoutes from './RootNavigator/home.routes';
+import Home from '../pages/Home';
+import About from '../pages/About';
 
 export default function Routes() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="Home"
       screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Home" component={HomeRoutes} />
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="About" component={About} />
     </Stack.Navigator>
   );
 }

@@ -71,6 +71,17 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Neuton-Bold.ttf</string>
+		<string>Neuton-ExtraBold.ttf</string>
+		<string>Neuton-ExtraLight.ttf</string>
+		<string>Neuton-Italic.ttf</string>
+		<string>Neuton-Light.ttf</string>
+		<string>Neuton-Regular.ttf</string>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>
