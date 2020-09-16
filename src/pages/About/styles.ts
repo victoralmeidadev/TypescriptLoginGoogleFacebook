@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/Feather';
 
 export const Container = styled.View`
   display: flex;
@@ -6,7 +7,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
 
-  background-color: #c3c3c3;
+  background-color: #fff;
 `;
 
 export const Content = styled.View`
@@ -43,11 +44,17 @@ export const LogoutButton = styled.TouchableHighlight`
   border-radius: 8px;
   border-color: #1818182a;
   border-width: 1px;
-  elevation: 1;
+  elevation: 5;
 `;
 
 export const LogoutButtonText = styled.Text`
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
+`;
+
+export const BackButton = styled(Icon)`
+  color: #0008;
+  align-self: flex-start;
+  margin: 20px;
 `;

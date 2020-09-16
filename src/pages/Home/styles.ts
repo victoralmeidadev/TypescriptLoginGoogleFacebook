@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/Feather';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   display: flex;
-  flex: 1;
+  flex-grow: 1;
   background-color: #fff;
   padding: 30px;
 `;
@@ -55,11 +55,10 @@ export const SearchWrapper = styled.View`
   height: 60px;
   background-color: #fff;
   elevation: 5;
-  margin-top: 20px;
-  margin-bottom: 20px;
   padding: 10px;
   padding-left: 10px;
   align-items: center;
+  margin: 20px 5px 20px 5px;
 `;
 
 export const SearchInput = styled.TextInput`
@@ -81,6 +80,15 @@ export const FilterWrapper = styled.View`
 
 export const FilterButton = styled.TouchableHighlight`
   align-self: stretch;
+`;
+export const FilterButtonSelected = styled.TouchableHighlight`
+  background-color: #cab4;
+  align-self: stretch;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 50px;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FilterButtonText = styled.Text`

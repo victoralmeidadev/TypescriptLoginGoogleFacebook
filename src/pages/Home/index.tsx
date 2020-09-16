@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { Dimensions, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Carousel from 'react-native-snap-carousel';
 
@@ -20,6 +20,7 @@ import {
   FilterWrapper,
   FilterButton,
   FilterButtonText,
+  FilterButtonSelected,
 } from './styles';
 
 import RouteCard from './components/RouteCard';
@@ -30,18 +31,22 @@ const Home: React.FC = () => {
   const navigation = useNavigation();
   const { userInfo } = useAuth();
 
+  const windowWidth = Dimensions.get('window').width;
+
   return (
     <Container>
       <Header>
-        <NameText>Hi, {userInfo?.name.split(' ')[0]}!</NameText>
-        <ProfileContainer>
-          <ProfilePicture
-            source={{
-              uri: userInfo?.photo,
-            }}
-          />
-          <ProfileBadge />
-        </ProfileContainer>
+        <NameText>Hi, {userInfo?.name?.split(' ')?.[0]}!</NameText>
+        <TouchableOpacity onPress={() => navigation.navigate('About')}>
+          <ProfileContainer>
+            <ProfilePicture
+              source={{
+                uri: userInfo?.photo,
+              }}
+            />
+            <ProfileBadge />
+          </ProfileContainer>
+        </TouchableOpacity>
       </Header>
       <Title>Let´s choose</Title>
       <Title>a travel route</Title>
@@ -55,21 +60,34 @@ const Home: React.FC = () => {
       </SearchWrapper>
 
       <FilterWrapper>
-        {Regions.map((item) => (
-          <FilterButton onPress={() => {}}>
-            <FilterButtonText>{item}</FilterButtonText>
-          </FilterButton>
-        ))}
+        {Regions.map((item) => {
+          if (item === 'All') {
+            return (
+              <FilterButtonSelected onPress={() => {}}>
+                <FilterButtonText>{item}</FilterButtonText>
+              </FilterButtonSelected>
+            );
+          }
+          return (
+            <FilterButton onPress={() => {}}>
+              <FilterButtonText>{item}</FilterButtonText>
+            </FilterButton>
+          );
+        })}
       </FilterWrapper>
 
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <Carousel
-          data={Routes}
-          renderItem={() => <RouteCard />}
-          sliderWidth={300}
-          itemWidth={150}
-        />
-      </View>
+      <Carousel
+        data={Routes}
+        renderItem={({ item }) => <RouteCard card={item} />}
+        sliderWidth={windowWidth}
+        itemWidth={350}
+        layout={'default'}
+        inactiveSlideScale={0.94}
+        inactiveSlideOpacity={0.7}
+        loop={true}
+        loopClonesPerSide={3}
+        contentContainerCustomStyle={{ marginBottom: 50 }}
+      />
     </Container>
   );
 };

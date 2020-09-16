@@ -7,7 +7,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
 
-  background-color: #c3c3c3;
+  background-color: #fff;
 
   padding: 20px;
 `;
@@ -27,4 +27,13 @@ export const LoginButton = styled(Icon.Button)`
   height: 40px;
   justify-content: space-around;
   margin: 5px;
+`;
+
+export const Title = styled.Text`
+  font-size: 40px;
+  font-family: OpenSans-Regular;
+  font-weight: bold;
+  color: #0008;
+  font-size: 18px;
+  margin: 20px;
 `;

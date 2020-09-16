@@ -33,7 +33,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   //Facebook Login
-  const useOnLoginFinished = useCallback(() => {
+  const useOnLoginFinished = useCallback((navigation) => {
     LoginManager.logInWithPermissions(['public_profile', 'email']).then(
       (result) => {
         if (result.isCancelled) {
@@ -50,6 +50,7 @@ export const AuthProvider: React.FC = ({ children }) => {
                 setUserInfo({ name, photo, email });
                 setIsSigned(true);
                 setLoginType(FACEBOOK_LOGIN_TYPE);
+                navigation.navigate('Home');
               }
               if (err) {
                 setUserInfo({});
@@ -70,7 +71,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   //Google Login
-  const useSignInGoogle = useCallback(async () => {
+  const useSignInGoogle = useCallback(async (navigation) => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
@@ -78,37 +79,43 @@ export const AuthProvider: React.FC = ({ children }) => {
       setUserInfo({ name, photo, email });
       setIsSigned(true);
       setLoginType(GOOGLE_LOGIN_TYPE);
+      navigation.navigate('Home');
     } catch (error) {
       console.error({ error });
     }
   }, []);
 
-  const useSignOutGoogle = useCallback(async () => {
+  const useSignOutGoogle = useCallback(async (navigation) => {
     try {
       await GoogleSignin.revokeAccess();
       await GoogleSignin.signOut();
       setIsSigned(false);
       setUserInfo({});
+      navigation.navigate('Login');
     } catch (error) {
       console.error(error);
     }
   }, []);
 
-  const useSignOut = useCallback(() => {
-    switch (loginType) {
-      case FACEBOOK_LOGIN_TYPE: {
-        LoginManager.logOut();
-        setIsSigned(false);
-        setUserInfo({});
-        break;
+  const useSignOut = useCallback(
+    (navigation) => {
+      switch (loginType) {
+        case FACEBOOK_LOGIN_TYPE: {
+          LoginManager.logOut();
+          setIsSigned(false);
+          setUserInfo({});
+          navigation.navigate('Login');
+          break;
+        }
+        case GOOGLE_LOGIN_TYPE: {
+          useSignOutGoogle(navigation);
+        }
+        default:
+          break;
       }
-      case GOOGLE_LOGIN_TYPE: {
-        useSignOutGoogle();
-      }
-      default:
-        break;
-    }
-  }, [loginType]);
+    },
+    [loginType],
+  );
 
   return (
     <AuthContext.Provider
