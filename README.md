@@ -4,4 +4,4 @@ Projeto de estudo para implementação de login facebook e google utilizando Typ
 
 # Dados
 
-Os dados foram disponibilizados para fim de estudo. Os aplicativos seráo excluidos do firebase/google/facebook fazendo com que sejam inválidos.
+Os dados foram disponibilizados para fim de estudo. Os aplicativos serão excluidos do firebase/google/facebook fazendo com que sejam inválidos.
